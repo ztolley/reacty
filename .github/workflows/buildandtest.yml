@@ -42,4 +42,4 @@ jobs:
           username: ${{ secrets.APP_SERVER_USERNAME }}
           key: ${{ secrets.APP_SERVER_KEY }}
           port: ${{ secrets.APP_SERVER_PORT }}
-          script: 'restart-reacty.sh'
+          script: '~/restart-reacty.sh'
