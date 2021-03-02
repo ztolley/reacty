@@ -13,8 +13,9 @@ interface ApiCallResult<T> {
   data?: T
 }
 
-const BASE_URL =
-  process.env.REACT_APP_BASE_URL || 'https://react-rest.therapywaffle.com/api'
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL ||
+  'https://react-rest.therapywaffle.com/api'
 
 export const useApiCall = <T>({
   method,
@@ -30,7 +31,7 @@ export const useApiCall = <T>({
   useEffect(() => {
     const apiUrl = url.toLowerCase().startsWith('http')
       ? url
-      : `${BASE_URL}${url}`
+      : `${API_BASE_URL}${url}`
 
     console.log('API Call: ', apiUrl)
 

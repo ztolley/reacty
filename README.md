@@ -14,6 +14,30 @@ how to bring in 3rd party interface components and Contexts to show how to make 
 nested components.
 
 ------------
+## Setup
+
+* Ensure you have the current LTS version of Node JS installed
+* Checkout the project
+* Run `npm install` from inside the project folder
+* Start the development server using `npm start`
+
+There is a REST API server also available, though the app defaults to using one hosted online.
+
+You can tell the api to use an alternative server using an environment variable `REACT_APP_API_BASE_URL`.
+
+----------
+## Development
+
+Try and use an editor that supports prettier and configure format on save. This will use the prettier
+config file in the project to keep a consistent layout and use of single/double quotes, spacing and
+other js style rules.
+
+Also use an editor that recognises .`editorconfig` files to ensure the correct tab/spacing settings
+and line endings are used.
+
+-------------
+
+
 ## Folder structure
 
 ### src
