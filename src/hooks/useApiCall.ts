@@ -53,7 +53,7 @@ export const useApiCall = <T>({
           loading: false,
         })
       })
-  }, [])
+  }, [data, method, url])
 
   return {
     data,
