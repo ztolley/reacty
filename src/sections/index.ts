@@ -4,3 +4,4 @@
 // context and one or more components
 export * from './PlatformDetail'
 export * from './PlatformList'
+export * from './NavBar'
