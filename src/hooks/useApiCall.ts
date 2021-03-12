@@ -1,9 +1,11 @@
+import { useKeycloak } from '@react-keycloak/web'
 import axios, { Method } from 'axios'
 import { useEffect, useState } from 'react'
 
 interface ApiCallParams {
   url: string
   method?: Method
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any
 }
 
@@ -28,15 +30,21 @@ export const useApiCall = <T>({
     loading: boolean
   }>({ loading: true })
 
+  // Load the current authentication token for use in API Requests
+  const {
+    keycloak: { token },
+  } = useKeycloak()
+
   useEffect(() => {
     const apiUrl = url.toLowerCase().startsWith('http')
       ? url
       : `${API_BASE_URL}${url}`
 
-    console.log('API Call: ', apiUrl)
-
     axios
       .request<T>({
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         method: method || 'GET',
         url: apiUrl,
         data: postData,
@@ -53,7 +61,7 @@ export const useApiCall = <T>({
           loading: false,
         })
       })
-  }, [data, method, url])
+  }, [])
 
   return {
     data,
