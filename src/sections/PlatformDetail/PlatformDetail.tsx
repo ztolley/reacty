@@ -6,21 +6,26 @@ export const PlatformDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const { data, error, loading } = usePlatform({ id })
 
+
   return (
-    <>
+    <div data-testid="platform-detail">
       <h2>Platform Detail</h2>
-      {error && <p>{error}</p>}
-      {loading && <p>Loading</p>}
+      {error && <p data-testid="platform-detail-error">{error}</p>}
+      {loading && <p data-testid="platform-detail-loading">Loading</p>}
       {data && (
-        <dl>
+        <dl data-testid="platform-detail-data">
           <dt>Name:</dt>
-          <dd>{data.name}</dd>
+          <dd data-testid="platform-detail-name">{data.name}</dd>
           <dt>Platform manager:</dt>
-          <dd>{data.platformManager}</dd>
+          <dd data-testid="platform-detail-platformManager">
+            {data.platformManager}
+          </dd>
           <dt>Representative:</dt>
-          <dd>{data.representative}</dd>
+          <dd data-testid="platform-detail-representative">
+            {data.representative}
+          </dd>
         </dl>
       )}
-    </>
+    </div>
   )
 }

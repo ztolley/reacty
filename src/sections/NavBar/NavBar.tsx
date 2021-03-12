@@ -17,14 +17,11 @@ export const NavBar: React.FC = () => {
 
   return (
     <div>
-      <div>Reacty</div>
-      <div>
-        {name}
-        <br />
-        <button type="button" onClick={onLogout}>
-          Logout
-        </button>
-      </div>
+      <h1 data-testid="navbar-title">Reacty</h1>
+      <div data-testid="navbar-username">{name}</div>
+      <button type="button" onClick={onLogout}>
+        Logout
+      </button>
     </div>
   )
 }
