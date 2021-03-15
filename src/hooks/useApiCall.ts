@@ -2,14 +2,14 @@ import { useKeycloak } from '@react-keycloak/web'
 import axios, { Method } from 'axios'
 import { useEffect, useState } from 'react'
 
-interface ApiCallParams {
+export interface ApiCallParams {
   url: string
   method?: Method
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any
 }
 
-interface ApiCallResult<T> {
+export interface ApiCallResult<T> {
   loading: boolean
   error?: string
   data?: T
